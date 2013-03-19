@@ -1,0 +1,69 @@
+<!DOCTYPE project [
+        <!ENTITY properties SYSTEM "file:./properties.xml">
+        ]>
+
+<project name="idsfdsm" basedir="." default="web-prepare">
+    &properties;
+
+    <target name="compile">
+        <echo level="info">Compiling ...</echo>
+        <mkdir dir="${build.dir}/classes"/>
+        <property name="excludes" value=""/>
+        <property name="additional.src.dirs" value=""/>
+        <javac srcdir="src;${additional.src.dirs}"
+               source="1.6"
+               target="1.6"
+               destdir="${build.dir}/classes"
+               debug="${compile.debug}"
+               deprecation="${compile.deprecation}"
+               optimize="${compile.optimize}"
+               encoding="UTF-8"
+               classpathref="compile.classpath"
+               includeAntRuntime="false">
+        </javac>
+    </target>
+
+    <target name="jar" depends="compile"
+            description="Package JAR">
+        <jar destfile="${dist.dir}/${webapp.name}-${dist.version}.jar">
+            <manifest>
+                <attribute name="Class-Path"
+                           value="${webapp.name}-${dist.version}.jar"/>
+            </manifest>
+            <fileset dir="${build.dir}/classes"/>
+        </jar>
+    </target>
+
+    <target name="web-prepare" depends="jar"
+            description="prepare WAR">
+        <mkdir dir="${build.dir}/${webapp.name}"/>
+        <copy overwrite="true" todir="${build.dir}/${webapp.name}">
+            <fileset dir="WebContent">
+                <include name="**/*.*"/>
+                <exclude name="**/*.jar"/>
+            </fileset>
+        </copy>
+        <copy overwrite="true" todir="${build.dir}/${webapp.name}/WEB-INF/lib">
+            <fileset dir="${dist.dir}">
+                <include name="${webapp.name}-${dist.version}.jar"/>
+            </fileset>
+            <fileset dir="${lib.dir}">
+                <include name="*.jar"/>
+                <exclude name="servlet-api.jar"/>
+                <exclude name="jsp-api.jar"/>
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="imp-war" depends="web-prepare"
+            description="Package WAR">
+        <war destfile="${dist.dir}/${webapp.name}.war"
+             webxml="${build.dir}/${webapp.name}/WEB-INF/web.xml" compress="true">
+            <fileset dir="${build.dir}/${webapp.name}" includes="**/*.*" excludes="**/web.xml"/>
+            <!-- <manifest>
+                <attribute name="Class-Path" value="cmstar-global-1.0.jar portlet-api-1.0.jar"/>
+            </manifest>-->
+        </war>
+    </target>
+
+</project>
