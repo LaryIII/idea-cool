@@ -1,7 +1,18 @@
 package com.cool.dao;
 
+import com.cool.model.DetailProduct;
+import com.cool.model.Product;
+
+import java.util.List;
+
 /**
- * @author <a href="mailto:pengzhao@wisedu.com">pengzhao</a>
+ * @author zorro
+ * Product数据库层
  */
-public class ProductDAO {
+public interface ProductDAO {
+    List<Product> getProduct();
+
+    List<Product> getProductByPage(int pageNum);
+
+    DetailProduct getDetailProduct(int uid);
 }

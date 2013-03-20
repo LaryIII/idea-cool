@@ -2,7 +2,7 @@
         <!ENTITY properties SYSTEM "file:./properties.xml">
         ]>
 
-<project name="idsfdsm" basedir="." default="web-prepare">
+<project name="coolpipi" basedir="." default="web-prepare">
     &properties;
 
     <target name="compile">
@@ -38,7 +38,7 @@
             description="prepare WAR">
         <mkdir dir="${build.dir}/${webapp.name}"/>
         <copy overwrite="true" todir="${build.dir}/${webapp.name}">
-            <fileset dir="WebContent">
+            <fileset dir="web">
                 <include name="**/*.*"/>
                 <exclude name="**/*.jar"/>
             </fileset>

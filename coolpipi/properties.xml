@@ -1,10 +1,10 @@
 <property name="build.dir" location="build"/>
-<property name="lib.dir" location="WebContent\WEB-INF\lib"/>
+<property name="lib.dir" location="web\WEB-INF\lib"/>
 <property name="testConfig.dir" location="testConfig"/>
 <property name="dist.dir" location="dist"/>
 
 <property name="dist.version" value="1.0"/>
-<property name="webapp.name" value="idsfdsm"/>
+<property name="webapp.name" value="coolpipi"/>
 <property name="compile.debug" value="true"/>
 <property name="compile.deprecation" value="false"/>
 <property name="compile.optimize" value="false"/>
