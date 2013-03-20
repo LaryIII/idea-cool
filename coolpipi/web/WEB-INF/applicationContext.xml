@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+        "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="fileEncoding" value="GBK"/>
+    </bean>
+
+    <!-- JNDI DataSource for J2EE environments -->
+    <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="jndiName" value="java:comp/env/jdbc/coolpipi"/>
+    </bean>
+
+    <!-- Transaction manager for a single JDBC DataSource -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <!-- Transaction template for Managers-->
+    <bean id="txProxyTemplate" lazy-init="true"
+          class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="add*">PROPAGATION_REQUIRED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED</prop>
+                <prop key="remove*">PROPAGATION_REQUIRED</prop>
+                <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+            </props>
+        </property>
+    </bean>
+
+    <!-- Message source for this context, loaded from localized "messages_xx" files -->
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basenames">
+            <list>
+                <value>messages</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- Default View Resolver -->
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="cache" value="true"/>
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+        <property name="prefix" value="/WEB-INF/jsp/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+	
+	<!-- Product -->
+    <bean id="productDAO" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.cool.dao.impl.ProductDAOImpl">
+                <property name="dataSource" ref="dataSource"/>
+            </bean>
+        </property>
+    </bean>
+
+	<bean id="index" class="com.cool.web.IndexController">
+        <property name="productDAO" ref="productDAO"/>
+	</bean>
+
+</beans>
