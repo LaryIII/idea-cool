@@ -144,7 +144,6 @@
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs"
                prefix="localhost_access_log." suffix=".txt"
                pattern="%h %l %u %t &quot;%r&quot; %s %b" />
-        <Context path="" docBase="D:\Github\idea-cool\coolpipi\build\coolpipi" debug="99" reloadable="true" crossContext="true"/>
       </Host>
     </Engine>
   </Service>

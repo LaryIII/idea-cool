@@ -1,0 +1,14 @@
+<!--
+
+    Context configuration file for the Tomcat Balancer Web App
+    This is only needed to keep the distribution small and avoid duplicating
+    commons libraries
+
+    $Id: balancer.xml,v 1.1 2003/11/20 21:43:32 remm Exp $
+
+-->
+
+
+<Context path="/coolpipi" docBase="D:\Github\idea-cool\coolpipi\build\coolpipi" reloadable="true" crossContext="true">
+	<ResourceLink name="jdbc/coolpipi" type="javax.sql.DataSource" global="jdbc/coolpipi"/>
+</Context>
