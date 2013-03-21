@@ -14,6 +14,6 @@
 	 -->
 </head>
 <body>
-<jsp:forward page="/login.do"></jsp:forward>
+<jsp:forward page="/index.do"></jsp:forward>
 </body>
 </html>

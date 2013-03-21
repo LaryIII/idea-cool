@@ -57,7 +57,7 @@
         </property>
     </bean>
 
-	<bean id="index" class="com.cool.web.IndexController">
+	<bean name="/index.do" class="com.cool.web.IndexController">
         <property name="productDAO" ref="productDAO"/>
 	</bean>
 

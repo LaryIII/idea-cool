@@ -1,6 +1,7 @@
 package com.cool.web;
 
 import com.cool.dao.ProductDAO;
+import org.apache.log4j.Logger;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.AbstractController;
 
@@ -15,6 +16,7 @@ import java.util.Map;
  * 首页内容的控制器
  */
 public class IndexController extends AbstractController {
+    Logger log = Logger.getLogger(IndexController.class);
     private ProductDAO productDAO;
 
     public void setProductDAO(ProductDAO productDAO){
