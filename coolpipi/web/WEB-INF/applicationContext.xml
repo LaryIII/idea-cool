@@ -61,4 +61,7 @@
         <property name="productDAO" ref="productDAO"/>
 	</bean>
 
+    <bean name="/admin.do" class="com.cool.web.AdminController">
+    </bean>
+
 </beans>
