@@ -39,7 +39,7 @@
         <mkdir dir="${build.dir}/${webapp.name}"/>
         <copy overwrite="true" todir="${build.dir}/${webapp.name}">
             <fileset dir="web">
-                <include name="**/*.*"/>
+                <include name="**/**"/>
                 <exclude name="**/*.jar"/>
             </fileset>
         </copy>

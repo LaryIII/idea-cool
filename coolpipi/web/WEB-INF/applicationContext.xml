@@ -26,7 +26,7 @@
                 <prop key="add*">PROPAGATION_REQUIRED</prop>
                 <prop key="update*">PROPAGATION_REQUIRED</prop>
                 <prop key="remove*">PROPAGATION_REQUIRED</prop>
-                <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+                <prop key="*">PROPAGATION_REQUIRED</prop>
             </props>
         </property>
     </bean>
@@ -63,5 +63,17 @@
 
     <bean name="/admin.do" class="com.cool.web.AdminController">
     </bean>
+
+    <bean name="/edit.do" class="com.cool.web.EditController">
+        <property name="formView" value="edit"/>
+        <property name="successView" value="admin"/>
+        <property name="productDAO" ref="productDAO"/>
+    </bean>
+
+    <bean name="/submit.do" class="com.cool.web.EditProcessController">
+        <property name="productDAO" ref="productDAO"/>
+    </bean>
+
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"></bean>
 
 </beans>

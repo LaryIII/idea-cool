@@ -1,5 +1,7 @@
 package com.cool.model;
 
+import java.io.File;
+
 /**
  * @author zorro
  * 首页上展示的product对象
@@ -9,6 +11,7 @@ public class Product {
     String name;         //物品名称
     String summary;      //物品描述
     String defaultPic;   //图片路径
+    File file;           //图片文件
 
     public void setUid(int uid) {
         this.uid = uid;
@@ -26,6 +29,10 @@ public class Product {
         this.defaultPic = defaultPic;
     }
 
+    public void setFile(File file){
+        this.file = file;
+    }
+
     public int getUid() {
         return uid;
     }
@@ -40,5 +47,9 @@ public class Product {
 
     public String getDefaultPic() {
         return defaultPic;
+    }
+
+    public File getFile(){
+        return file;
     }
 }

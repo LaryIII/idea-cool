@@ -14,5 +14,9 @@ public interface ProductDAO {
 
     List<Product> getProductByPage(int pageNum);
 
+    Product getProductByUid(int uid);
+
+    int insertProduct(Product product);
+
     DetailProduct getDetailProduct(int uid);
 }
