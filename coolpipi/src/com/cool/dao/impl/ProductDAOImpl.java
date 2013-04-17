@@ -29,7 +29,7 @@ public class ProductDAOImpl extends JdbcDaoSupport implements ProductDAO {
     }
 
     public Product getProductByUid(int uid) {
-        return (Product) getJdbcTemplate().query(SELECT_PRODUCT, new Object[]{uid}, new ProductRowMapper());
+        return (Product) getJdbcTemplate().query(SELECT_PRODUCT, new Object[]{uid}, new ProductRowMapper()).get(0);
     }
 
     @Override

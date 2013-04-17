@@ -20,11 +20,12 @@
     <form:form action="submit.do" method="post" enctype="multipart/form-data">
         物品名称：<form:input path="name"></form:input>
         </br>
-        物品描述：<form:textarea path="summary" rows="5"/>
+        物品描述：<form:textarea path="summary" rows="8" cssStyle="width:500px"/>
         </br>
-        上传图片1：<input path="file" name="file" type="file"/>
+        上传图片：<input path="file" name="file" type="file"/>
         </br>
         <input type="submit" value="提 交">
+        <input type="button" value="返 回" onclick="window.location.href='admin.do'">
     </form:form>
 </div>
 </body>

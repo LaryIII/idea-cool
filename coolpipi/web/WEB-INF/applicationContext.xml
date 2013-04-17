@@ -61,7 +61,12 @@
         <property name="productDAO" ref="productDAO"/>
 	</bean>
 
+    <bean name="/page.do" class="com.cool.web.PageController">
+        <property name="productDAO" ref="productDAO"/>
+    </bean>
+
     <bean name="/admin.do" class="com.cool.web.AdminController">
+        <property name="productDAO" ref="productDAO"/>
     </bean>
 
     <bean name="/edit.do" class="com.cool.web.EditController">
