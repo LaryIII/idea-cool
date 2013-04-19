@@ -3,15 +3,9 @@
 <script type="text/javascript">
 </script>
 <html>
-<head>
-    <title>idea cool!</title>
-    <meta charset="UTF-8">
-    <!--     <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet" media="screen" />
-    <link href="assets/css/ideacool.css" rel="stylesheet" media="screen" />
-</head>
-<%@ include file="/WEB-INF/jsp/head.jsp" %>
 <body style="background-color: white;">
+<%@ include file="/WEB-INF/jsp/head.jsp" %>
+<div class="content">
     <div class="layoutbox"></div>
     <div class="slide-down-box"></div>
     <input type="button" onclick="window.location.href='edit.do'" value="ĞÂ Ôö"/>
@@ -45,5 +39,6 @@
             </tr>
         </c:forEach>
     </table>
+</div>
 </body>
 </html>

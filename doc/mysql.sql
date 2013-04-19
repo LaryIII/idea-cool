@@ -30,9 +30,11 @@ create table C_ACCOUNT
 	UID        INT       primary key auto_increment  NOT NULL,       --用户唯一标识符，自增长字段
 	MAIL       VARCHAR(30)     NOT NULL,                             --登录帐号，邮箱格式
 	PASSWORD   VARCHAR(32)     NOT NULL,                             --登录密码
+	NICKNAME   VARCHAR(30)     NOT NULL,                             --昵称
 	DATE       DATE            NOT NULL,                             --注册日期 yyyy-MM-dd
-	LASTIP     VARCHAR(20),                                          --上一次登录的IP
-	TOKEN      VARCHAR(30)                                           --验证邮箱的标识字段，值为UUID     
+	LASTIP     VARCHAR(30),                                          --上一次登录的IP
+	TOKEN      VARCHAR(40)                                           --验证邮箱的标识字段，值为UUID 
+        
 )ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- 存储帐号收藏的物品

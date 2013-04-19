@@ -10,15 +10,14 @@
     <div class="layoutbox"></div>
     <div class="slide-down-box">
     </div>
-    <form:form action="submit.do" method="post" enctype="multipart/form-data">
-        物品名称：<form:input path="name"></form:input>
+    <form:form action="register.do" method="post">
+        注册邮箱：<form:input path="mail"/>
         </br>
-        物品描述：<form:textarea path="summary" rows="8" cssStyle="width:500px"/>
+        创建密码：<form:password path="password"/>
         </br>
-        上传图片：<input path="file" name="file" type="file"/>
+        昵称：<form:input path="nickname"/>
         </br>
         <input type="submit" value="提 交">
-        <input type="button" value="返 回" onclick="window.location.href='admin.do'">
     </form:form>
 </div>
 </body>

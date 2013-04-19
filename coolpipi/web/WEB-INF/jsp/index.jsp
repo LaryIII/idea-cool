@@ -3,13 +3,6 @@
 <script type="text/javascript">
 </script>
 <html>
-<head>
-    <title>idea cool!</title>
-    <meta charset="UTF-8">
-    <!--     <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet" media="screen" />
-    <link href="assets/css/ideacool.css" rel="stylesheet" media="screen" />
-</head>
 <body>
 <%@ include file="/WEB-INF/jsp/head.jsp" %>
 <div class="content">
@@ -129,20 +122,5 @@
         </li>
     </ul>
 </div>
-<div id="mask"></div>
-<div class="modal hide fade" id="myModal">
-    <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h3>对话框标题</h3>
-    </div>
-    <div class="modal-body">
-        <p>One fine body…</p>
-    </div>
-    <div class="modal-footer">
-        <a href="#" class="btn">关闭</a>
-        <a href="#" class="btn btn-primary">Save changes</a>
-    </div>
-</div>
-<script src="assets/sea-modules/seajs/2.0.0/sea.js" data-config="home-page/index-config" data-main="home-page/index"></script>
 </body>
 </html>

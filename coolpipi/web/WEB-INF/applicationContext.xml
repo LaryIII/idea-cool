@@ -79,6 +79,25 @@
         <property name="productDAO" ref="productDAO"/>
     </bean>
 
+    <!-- user -->
+    <bean id="accountDAO" parent="txProxyTemplate">
+        <property name="target">
+            <bean class="com.cool.dao.impl.AccountDAOImpl">
+                <property name="dataSource" ref="dataSource"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean name="/login.do" class="com.cool.web.LoginController">
+        <property name="accountDAO" ref="accountDAO"/>
+    </bean>
+
+    <bean name="/register.do" class="com.cool.web.RegisterController">
+        <property name="accountDAO" ref="accountDAO"/>
+        <property name="formView" value="register"/>
+        <property name="successView" value="index"/>
+    </bean>
+
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"></bean>
 
 </beans>
