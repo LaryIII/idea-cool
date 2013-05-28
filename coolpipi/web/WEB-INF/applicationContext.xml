@@ -4,7 +4,7 @@
 
 <beans>
 	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-        <property name="fileEncoding" value="GBK"/>
+        <property name="fileEncoding" value="UTF-8"/>
     </bean>
 
     <!-- JNDI DataSource for J2EE environments -->
@@ -70,8 +70,8 @@
     </bean>
 
     <bean name="/edit.do" class="com.cool.web.EditController">
-        <property name="formView" value="edit"/>
-        <property name="successView" value="admin"/>
+        <property name="formView" value="admin/edit"/>
+        <property name="successView" value="admin/admin"/>
         <property name="productDAO" ref="productDAO"/>
     </bean>
 
@@ -98,6 +98,8 @@
         <property name="successView" value="index"/>
     </bean>
 
-    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"></bean>
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="defaultEncoding" value="UTF-8"/>
+    </bean>
 
 </beans>

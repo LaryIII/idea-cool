@@ -10,6 +10,8 @@ import java.util.List;
  * Product数据库层
  */
 public interface ProductDAO {
+    List<Product> getAllProduct();
+
     List<Product> getProduct();
 
     List<Product> getProductByPage(int pageNum);
@@ -17,6 +19,8 @@ public interface ProductDAO {
     Product getProductByUid(int uid);
 
     int insertProduct(Product product);
+
+    int updateProduct(Product product);
 
     DetailProduct getDetailProduct(int uid);
 }

@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" pageEncoding="gb2312" %>
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <head>
     <title>idea cool!</title>
     <meta charset="UTF-8">
@@ -11,7 +11,7 @@
     <div class="logo-box"><a href="#" class="logo"></a></div>
     <div class="home-btn"><button id="homeBtn" class="btn btn-large" type="button">Home</button></div>
     <div class="login">
-        <button id="loginbtn" class="btn dropdown-toggle" data-toggle="modal" data-target="#myModal"><i class="icon-user"></i> ��¼</button>
+        <button id="loginbtn" class="btn dropdown-toggle" data-toggle="modal" data-target="#myModal"><i class="icon-user"></i> 登录</button>
     </div>
 </div>
 <div id="mask"></div>
@@ -19,15 +19,15 @@
     <form action="login.do" method="post">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h3>��¼</h3>
+            <h3>登录</h3>
         </div>
         <div class="modal-body">
-            �û�����<input type="text" name="username" size="10"></br>
-            �ܡ��룺<input type="password" name="password" size="10">
+            用户名：<input type="text" name="username" size="10"></br>
+            密　码：<input type="password" name="password" size="10">
         </div>
         <div class="modal-footer">
-            <a type="submit" class="btn">��¼</a>
-            <a onclick="window.location.href='register.do'" class="btn btn-primary">ע�����û�</a>
+            <a type="submit" class="btn">登录</a>
+            <a onclick="window.location.href='register.do'" class="btn btn-primary">注册新用户</a>
         </div>
     </form>
 </div>

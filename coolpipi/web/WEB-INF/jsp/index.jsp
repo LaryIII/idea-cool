@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" pageEncoding="gb2312" %>
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ include file="/WEB-INF/jsp/include.jsp" %>
 <script type="text/javascript">
 </script>
@@ -15,9 +15,9 @@
                 <div class="gallery-box"></div>
                 <img src="assets/images-list/001.jpg" />
                 <div class="gallery-info">
-                    <div class="gallery-title">GoogleÑÛ¾µ</div>
-                    <div class="gallery-label"><span class="label label-inverse">¼«Æ·</span><span class="label">ìÅ¿á</span><span class="label label-info">´©´÷Ê½</span></div>
-                    <div class="gallery-detail">¹È¸èÓÚ2012Äê4ÔÂ4ÈÕÔÚÆäÉç½»ÍøÂçGoogle+ÉÏ¹«²¼ÁËÃüÃûÎª¡°Project Glass¡±µÄµç×ÓÑÛ¾µ²úÆ·¼Æ»®£¬´Ë¿îÑÛ¾µÕý´¦ÔÚµ÷ÕûºÍ²âÊÔ¹ý³ÌÖÐ £¬»¹Î´ÔÚµêÆÌÖÐÍÆ³ö¡£¹È¸èÑÛ¾µ°üÀ¨ÁËÒ»Ìõ¿ÉºáÖÃÓÚ±ÇÁºÉÏ·½µÄÆ½ÐÐ¿ò¼Ü¡¢Ò»¸öÎ»ÓÚ¾µ¿òÓÒ²àµÄ¿íÌõ×´µçÄÔ...</div>
+                    <div class="gallery-title">Googleçœ¼é•œ</div>
+                    <div class="gallery-label"><span class="label label-inverse">æžå“</span><span class="label">ç‚«é…·</span><span class="label label-info">ç©¿æˆ´å¼</span></div>
+                    <div class="gallery-detail">è°·æ­ŒäºŽ2012å¹´4æœˆ4æ—¥åœ¨å…¶ç¤¾äº¤ç½‘ç»œGoogle+ä¸Šå…¬å¸ƒäº†å‘½åä¸ºâ€œProject Glassâ€çš„ç”µå­çœ¼é•œäº§å“è®¡åˆ’ï¼Œæ­¤æ¬¾çœ¼é•œæ­£å¤„åœ¨è°ƒæ•´å’Œæµ‹è¯•è¿‡ç¨‹ä¸­ ï¼Œè¿˜æœªåœ¨åº—é“ºä¸­æŽ¨å‡ºã€‚è°·æ­Œçœ¼é•œåŒ…æ‹¬äº†ä¸€æ¡å¯æ¨ªç½®äºŽé¼»æ¢ä¸Šæ–¹çš„å¹³è¡Œæ¡†æž¶ã€ä¸€ä¸ªä½äºŽé•œæ¡†å³ä¾§çš„å®½æ¡çŠ¶ç”µè„‘...</div>
                 </div>
             </div>
         </li>
@@ -27,8 +27,8 @@
                 <img src="assets/images-list/002.jpg"/>
                 <div class="gallery-info" style="top:350px;">
                     <div class="gallery-title">iWatch</div>
-                    <div class="gallery-label"><span class="label">ìÅ¿á</span><span class="label label-info">´©´÷Ê½</span></div>
-                    <div class="gallery-detail">¹È¸èÓÚ2012Äê4ÔÂ4ÈÕÔÚÆäÉç½»ÍøÂçGoogle+ÉÏ¹«²¼ÁËÃüÃûÎª¡°Project Glass¡±µÄµç×ÓÑÛ¾µ²úÆ·¼Æ»®£¬´Ë¿îÑÛ¾µÕý´¦ÔÚµ÷ÕûºÍ²âÊÔ¹ý³ÌÖÐ £¬»¹Î´ÔÚµêÆÌÖÐÍÆ³ö¡£</div>
+                    <div class="gallery-label"><span class="label">ç‚«é…·</span><span class="label label-info">ç©¿æˆ´å¼</span></div>
+                    <div class="gallery-detail">è°·æ­ŒäºŽ2012å¹´4æœˆ4æ—¥åœ¨å…¶ç¤¾äº¤ç½‘ç»œGoogle+ä¸Šå…¬å¸ƒäº†å‘½åä¸ºâ€œProject Glassâ€çš„ç”µå­çœ¼é•œäº§å“è®¡åˆ’ï¼Œæ­¤æ¬¾çœ¼é•œæ­£å¤„åœ¨è°ƒæ•´å’Œæµ‹è¯•è¿‡ç¨‹ä¸­ ï¼Œè¿˜æœªåœ¨åº—é“ºä¸­æŽ¨å‡ºã€‚</div>
                 </div>
             </div>
         </li>
@@ -38,8 +38,8 @@
                 <img src="assets/images-list/003.jpg">
                 <div class="gallery-info">
                     <div class="gallery-title">Padfone2</div>
-                    <div class="gallery-label"><span class="label">ìÅ¿á</span><span class="label label-info">´©´÷Ê½</span></div>
-                    <div class="gallery-detail">¹È¸èÓÚ2012Äê4ÔÂ4ÈÕÔÚÆäÉç½»ÍøÂçGoogle+ÉÏ¹«²¼ÁËÃüÃûÎª¡°Project Glass¡±µÄµç×ÓÑÛ¾µ²úÆ·¼Æ»®£¬´Ë¿îÑÛ¾µÕý´¦ÔÚµ÷ÕûºÍ²âÊÔ¹ý³ÌÖÐ £¬»¹Î´ÔÚµêÆÌÖÐÍÆ³ö¡£</div>
+                    <div class="gallery-label"><span class="label">ç‚«é…·</span><span class="label label-info">ç©¿æˆ´å¼</span></div>
+                    <div class="gallery-detail">è°·æ­ŒäºŽ2012å¹´4æœˆ4æ—¥åœ¨å…¶ç¤¾äº¤ç½‘ç»œGoogle+ä¸Šå…¬å¸ƒäº†å‘½åä¸ºâ€œProject Glassâ€çš„ç”µå­çœ¼é•œäº§å“è®¡åˆ’ï¼Œæ­¤æ¬¾çœ¼é•œæ­£å¤„åœ¨è°ƒæ•´å’Œæµ‹è¯•è¿‡ç¨‹ä¸­ ï¼Œè¿˜æœªåœ¨åº—é“ºä¸­æŽ¨å‡ºã€‚</div>
                 </div>
             </div>
         </li>
@@ -49,8 +49,8 @@
                 <img src="assets/images-list/004.jpg">
                 <div class="gallery-info" style="top:380px;">
                     <div class="gallery-title">Lytro</div>
-                    <div class="gallery-label"><span class="label">ìÅ¿á</span><span class="label label-info">´©´÷Ê½</span></div>
-                    <div class="gallery-detail">¹È¸èÓÚ2012Äê4ÔÂ4ÈÕÔÚÆäÉç½»ÍøÂçGoogle+ÉÏ¹«²¼ÁËÃüÃûÎª¡°Project Glass¡±µÄµç×ÓÑÛ¾µ²úÆ·¼Æ»®£¬´Ë¿îÑÛ¾µÕý´¦ÔÚµ÷ÕûºÍ²âÊÔ¹ý³ÌÖÐ £¬»¹Î´ÔÚµêÆÌÖÐÍÆ³ö¡£</div>
+                    <div class="gallery-label"><span class="label">ç‚«é…·</span><span class="label label-info">ç©¿æˆ´å¼</span></div>
+                    <div class="gallery-detail">è°·æ­ŒäºŽ2012å¹´4æœˆ4æ—¥åœ¨å…¶ç¤¾äº¤ç½‘ç»œGoogle+ä¸Šå…¬å¸ƒäº†å‘½åä¸ºâ€œProject Glassâ€çš„ç”µå­çœ¼é•œäº§å“è®¡åˆ’ï¼Œæ­¤æ¬¾çœ¼é•œæ­£å¤„åœ¨è°ƒæ•´å’Œæµ‹è¯•è¿‡ç¨‹ä¸­ ï¼Œè¿˜æœªåœ¨åº—é“ºä¸­æŽ¨å‡ºã€‚</div>
                 </div>
             </div>
         </li>
@@ -60,8 +60,8 @@
                 <img src="assets/images-list/005.jpg">
                 <div class="gallery-info">
                     <div class="gallery-title">iWatch</div>
-                    <div class="gallery-label"><span class="label">ìÅ¿á</span><span class="label label-info">´©´÷Ê½</span></div>
-                    <div class="gallery-detail">¹È¸èÓÚ2012Äê4ÔÂ4ÈÕÔÚÆäÉç½»ÍøÂçGoogle+ÉÏ¹«²¼ÁËÃüÃûÎª¡°Project Glass¡±µÄµç×ÓÑÛ¾µ²úÆ·¼Æ»®£¬´Ë¿îÑÛ¾µÕý´¦ÔÚµ÷ÕûºÍ²âÊÔ¹ý³ÌÖÐ £¬»¹Î´ÔÚµêÆÌÖÐÍÆ³ö¡£</div>
+                    <div class="gallery-label"><span class="label">ç‚«é…·</span><span class="label label-info">ç©¿æˆ´å¼</span></div>
+                    <div class="gallery-detail">è°·æ­ŒäºŽ2012å¹´4æœˆ4æ—¥åœ¨å…¶ç¤¾äº¤ç½‘ç»œGoogle+ä¸Šå…¬å¸ƒäº†å‘½åä¸ºâ€œProject Glassâ€çš„ç”µå­çœ¼é•œäº§å“è®¡åˆ’ï¼Œæ­¤æ¬¾çœ¼é•œæ­£å¤„åœ¨è°ƒæ•´å’Œæµ‹è¯•è¿‡ç¨‹ä¸­ ï¼Œè¿˜æœªåœ¨åº—é“ºä¸­æŽ¨å‡ºã€‚</div>
                 </div>
             </div>
         </li>
@@ -71,8 +71,8 @@
                 <img src="assets/images-list/006.jpg">
                 <div class="gallery-info">
                     <div class="gallery-title">iWatch</div>
-                    <div class="gallery-label"><span class="label">ìÅ¿á</span><span class="label label-info">´©´÷Ê½</span></div>
-                    <div class="gallery-detail">¹È¸èÓÚ2012Äê4ÔÂ4ÈÕÔÚÆäÉç½»ÍøÂçGoogle+ÉÏ¹«²¼ÁËÃüÃûÎª¡°Project Glass¡±µÄµç×ÓÑÛ¾µ²úÆ·¼Æ»®£¬´Ë¿îÑÛ¾µÕý´¦ÔÚµ÷ÕûºÍ²âÊÔ¹ý³ÌÖÐ £¬»¹Î´ÔÚµêÆÌÖÐÍÆ³ö¡£</div>
+                    <div class="gallery-label"><span class="label">ç‚«é…·</span><span class="label label-info">ç©¿æˆ´å¼</span></div>
+                    <div class="gallery-detail">è°·æ­ŒäºŽ2012å¹´4æœˆ4æ—¥åœ¨å…¶ç¤¾äº¤ç½‘ç»œGoogle+ä¸Šå…¬å¸ƒäº†å‘½åä¸ºâ€œProject Glassâ€çš„ç”µå­çœ¼é•œäº§å“è®¡åˆ’ï¼Œæ­¤æ¬¾çœ¼é•œæ­£å¤„åœ¨è°ƒæ•´å’Œæµ‹è¯•è¿‡ç¨‹ä¸­ ï¼Œè¿˜æœªåœ¨åº—é“ºä¸­æŽ¨å‡ºã€‚</div>
                 </div>
             </div>
         </li>
@@ -82,8 +82,8 @@
                 <img src="assets/images-list/007.jpg">
                 <div class="gallery-info" style="top:150px;">
                     <div class="gallery-title">iWatch</div>
-                    <div class="gallery-label"><span class="label">ìÅ¿á</span><span class="label label-info">´©´÷Ê½</span></div>
-                    <div class="gallery-detail">¹È¸èÓÚ2012Äê4ÔÂ4ÈÕÔÚÆäÉç½»ÍøÂçGoogle+ÉÏ¹«²¼ÁËÃüÃûÎª¡°Project Glass¡±µÄµç×ÓÑÛ¾µ²úÆ·¼Æ»®£¬´Ë¿îÑÛ¾µÕý´¦ÔÚµ÷ÕûºÍ²âÊÔ¹ý³ÌÖÐ £¬»¹Î´ÔÚµêÆÌÖÐÍÆ³ö¡£</div>
+                    <div class="gallery-label"><span class="label">ç‚«é…·</span><span class="label label-info">ç©¿æˆ´å¼</span></div>
+                    <div class="gallery-detail">è°·æ­ŒäºŽ2012å¹´4æœˆ4æ—¥åœ¨å…¶ç¤¾äº¤ç½‘ç»œGoogle+ä¸Šå…¬å¸ƒäº†å‘½åä¸ºâ€œProject Glassâ€çš„ç”µå­çœ¼é•œäº§å“è®¡åˆ’ï¼Œæ­¤æ¬¾çœ¼é•œæ­£å¤„åœ¨è°ƒæ•´å’Œæµ‹è¯•è¿‡ç¨‹ä¸­ ï¼Œè¿˜æœªåœ¨åº—é“ºä¸­æŽ¨å‡ºã€‚</div>
                 </div>
             </div>
         </li>
@@ -93,8 +93,8 @@
                 <img src="assets/images-list/008.jpg">
                 <div class="gallery-info">
                     <div class="gallery-title">iWatch</div>
-                    <div class="gallery-label"><span class="label">ìÅ¿á</span><span class="label label-info">´©´÷Ê½</span></div>
-                    <div class="gallery-detail">¹È¸èÓÚ2012Äê4ÔÂ4ÈÕÔÚÆäÉç½»ÍøÂçGoogle+ÉÏ¹«²¼ÁËÃüÃûÎª¡°Project Glass¡±µÄµç×ÓÑÛ¾µ²úÆ·¼Æ»®£¬´Ë¿îÑÛ¾µÕý´¦ÔÚµ÷ÕûºÍ²âÊÔ¹ý³ÌÖÐ £¬»¹Î´ÔÚµêÆÌÖÐÍÆ³ö¡£</div>
+                    <div class="gallery-label"><span class="label">ç‚«é…·</span><span class="label label-info">ç©¿æˆ´å¼</span></div>
+                    <div class="gallery-detail">è°·æ­ŒäºŽ2012å¹´4æœˆ4æ—¥åœ¨å…¶ç¤¾äº¤ç½‘ç»œGoogle+ä¸Šå…¬å¸ƒäº†å‘½åä¸ºâ€œProject Glassâ€çš„ç”µå­çœ¼é•œäº§å“è®¡åˆ’ï¼Œæ­¤æ¬¾çœ¼é•œæ­£å¤„åœ¨è°ƒæ•´å’Œæµ‹è¯•è¿‡ç¨‹ä¸­ ï¼Œè¿˜æœªåœ¨åº—é“ºä¸­æŽ¨å‡ºã€‚</div>
                 </div>
             </div>
         </li>
@@ -104,8 +104,8 @@
                 <img src="assets/images-list/009.jpg">
                 <div class="gallery-info" style="top:180px;">
                     <div class="gallery-title">iWatch</div>
-                    <div class="gallery-label"><span class="label">ìÅ¿á</span><span class="label label-info">´©´÷Ê½</span></div>
-                    <div class="gallery-detail">¹È¸èÓÚ2012Äê4ÔÂ4ÈÕÔÚÆäÉç½»ÍøÂçGoogle+ÉÏ¹«²¼ÁËÃüÃûÎª¡°Project Glass¡±µÄµç×ÓÑÛ¾µ²úÆ·¼Æ»®£¬´Ë¿îÑÛ¾µÕý´¦ÔÚµ÷ÕûºÍ²âÊÔ¹ý³ÌÖÐ £¬»¹Î´ÔÚµêÆÌÖÐÍÆ³ö¡£</div>
+                    <div class="gallery-label"><span class="label">ç‚«é…·</span><span class="label label-info">ç©¿æˆ´å¼</span></div>
+                    <div class="gallery-detail">è°·æ­ŒäºŽ2012å¹´4æœˆ4æ—¥åœ¨å…¶ç¤¾äº¤ç½‘ç»œGoogle+ä¸Šå…¬å¸ƒäº†å‘½åä¸ºâ€œProject Glassâ€çš„ç”µå­çœ¼é•œäº§å“è®¡åˆ’ï¼Œæ­¤æ¬¾çœ¼é•œæ­£å¤„åœ¨è°ƒæ•´å’Œæµ‹è¯•è¿‡ç¨‹ä¸­ ï¼Œè¿˜æœªåœ¨åº—é“ºä¸­æŽ¨å‡ºã€‚</div>
                 </div>
             </div>
         </li>
@@ -115,8 +115,8 @@
                 <img src="assets/images-list/010.jpg">
                 <div class="gallery-info" style="top:120px;">
                     <div class="gallery-title">iWatch</div>
-                    <div class="gallery-label"><span class="label">ìÅ¿á</span><span class="label label-info">´©´÷Ê½</span></div>
-                    <div class="gallery-detail">¹È¸èÓÚ2012Äê4ÔÂ4ÈÕÔÚÆäÉç½»ÍøÂçGoogle+ÉÏ¹«²¼ÁËÃüÃûÎª¡°Project Glass¡±µÄµç×ÓÑÛ¾µ²úÆ·¼Æ»®£¬´Ë¿îÑÛ¾µÕý´¦ÔÚµ÷ÕûºÍ²âÊÔ¹ý³ÌÖÐ £¬»¹Î´ÔÚµêÆÌÖÐÍÆ³ö¡£</div>
+                    <div class="gallery-label"><span class="label">ç‚«é…·</span><span class="label label-info">ç©¿æˆ´å¼</span></div>
+                    <div class="gallery-detail">è°·æ­ŒäºŽ2012å¹´4æœˆ4æ—¥åœ¨å…¶ç¤¾äº¤ç½‘ç»œGoogle+ä¸Šå…¬å¸ƒäº†å‘½åä¸ºâ€œProject Glassâ€çš„ç”µå­çœ¼é•œäº§å“è®¡åˆ’ï¼Œæ­¤æ¬¾çœ¼é•œæ­£å¤„åœ¨è°ƒæ•´å’Œæµ‹è¯•è¿‡ç¨‹ä¸­ ï¼Œè¿˜æœªåœ¨åº—é“ºä¸­æŽ¨å‡ºã€‚</div>
                 </div>
             </div>
         </li>

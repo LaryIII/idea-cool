@@ -2,6 +2,7 @@ package com.cool.web;
 
 import com.cool.dao.ProductDAO;
 import com.cool.model.Product;
+import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
@@ -29,11 +30,14 @@ public class EditProcessController {
     }
 
     @RequestMapping("submit.do")
-    public ModelAndView upload(HttpServletRequest request,HttpServletResponse response ){
+    public void upload(HttpServletRequest request,HttpServletResponse response ) throws IOException {
         String pathdir = "/indexPic";               //图片上传路径
         String realpathdir = request.getSession().getServletContext().getRealPath(pathdir);    // 得到图片保存目录的真实路径
+        String uid = request.getParameter("uid");
         String name = request.getParameter("name");
         String summary = request.getParameter("summary");
+        String editorValue = request.getParameter("editorValue");
+        String defaultPic = request.getParameter("defaultPic");
         MultipartHttpServletRequest multipartActionRequest = (MultipartHttpServletRequest) request;
         MultipartFile file = multipartActionRequest.getFile((String) multipartActionRequest.getFileNames().next());
         String fileName = ((CommonsMultipartFile) file).getFileItem().getName();
@@ -41,17 +45,27 @@ public class EditProcessController {
         Product product = new Product();
         product.setName(name);
         product.setSummary(summary);
-        product.setDefaultPic(fileName);
-        productDAO.insertProduct(product);
+        if(!StringUtils.isEmpty(fileName)){
+            product.setDefaultPic(fileName);
+        }else{
+            product.setDefaultPic(defaultPic);
+        }
+        product.setEditorValue(editorValue);
+        if(StringUtils.isEmpty(uid)){
+            productDAO.insertProduct(product);
+        }else {
+            product.setUid(Integer.parseInt(uid));
+            productDAO.updateProduct(product);
+        }
         //图片保存到文件夹中
         if(file.getSize()>0){
             try{
                 SaveFileFromInputStream(file.getInputStream(), realpathdir , fileName);
             } catch (IOException e){
-                System.out.println(e.getMessage());
+                e.printStackTrace();
             }
         }
-        return new ModelAndView("admin");
+        response.sendRedirect("admin.do");
     }
 
     public void SaveFileFromInputStream(InputStream stream, String path, String filename) throws IOException{

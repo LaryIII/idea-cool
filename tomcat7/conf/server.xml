@@ -49,10 +49,8 @@
 			  username="coolweb"   
 			  password="zorro123"   
 			  driverClassName="com.mysql.jdbc.Driver"   
-			  url="jdbc:mysql://114.80.210.96:3306/coolweb"   
-			  maxWait="9000"   
-			  maxIdle="30"   
-			  maxActive="50"/>
+			  url="jdbc:mysql://114.80.210.96:3306/coolweb?useUnicode=true&amp;characterEncoding=utf8"   
+			  autoReconnect="true"/>
   </GlobalNamingResources>
 
   <!-- A "Service" is a collection of one or more "Connectors" that share
@@ -78,7 +76,7 @@
     -->
     <Connector port="80" protocol="HTTP/1.1"
                connectionTimeout="20000"
-               redirectPort="8443" />
+               redirectPort="8443"/>
     <!-- A "Connector" using the shared thread pool-->
     <!--
     <Connector executor="tomcatThreadPool"
@@ -144,6 +142,7 @@
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs"
                prefix="localhost_access_log." suffix=".txt"
                pattern="%h %l %u %t &quot;%r&quot; %s %b" />
+		<!--<Context path="" docBase="D:\Github\Ballot\build\ballot" debug="0" reloadable="true"/>-->
       </Host>
     </Engine>
   </Service>

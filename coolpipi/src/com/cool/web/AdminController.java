@@ -24,7 +24,7 @@ public class AdminController extends AbstractController {
 
     protected ModelAndView handleRequestInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws Exception {
         Map model = new HashMap();
-        model.put("products", productDAO.getProduct());
-        return new ModelAndView("admin", model);
+        model.put("products", productDAO.getAllProduct());
+        return new ModelAndView("admin/admin", model);
     }
 }

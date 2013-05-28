@@ -12,6 +12,7 @@ public class Product {
     String summary;      //物品描述
     String defaultPic;   //图片路径
     File file;           //图片文件
+    String editorValue;  //物品详细描述
 
     public void setUid(int uid) {
         this.uid = uid;
@@ -33,6 +34,10 @@ public class Product {
         this.file = file;
     }
 
+    public void setEditorValue(String editorValue) {
+        this.editorValue = editorValue;
+    }
+
     public int getUid() {
         return uid;
     }
@@ -49,7 +54,11 @@ public class Product {
         return defaultPic;
     }
 
-    public File getFile(){
+    public File getFile() {
         return file;
+    }
+
+    public String getEditorValue() {
+        return editorValue;
     }
 }
