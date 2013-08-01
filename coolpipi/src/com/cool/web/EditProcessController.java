@@ -51,7 +51,7 @@ public class EditProcessController {
             product.setDefaultPic(defaultPic);
         }
         product.setEditorValue(editorValue);
-        if(StringUtils.isEmpty(uid)){
+        if(StringUtils.isEmpty(uid) || "0".equals(uid)){
             productDAO.insertProduct(product);
         }else {
             product.setUid(Integer.parseInt(uid));

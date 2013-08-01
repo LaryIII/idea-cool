@@ -51,31 +51,31 @@
 	<!-- Product -->
     <bean id="productDAO" parent="txProxyTemplate">
         <property name="target">
-            <bean class="com.cool.dao.impl.ProductDAOImpl">
+            <bean class="com.cool.dao.impl.ProductDAOImpl" init-method="init">
                 <property name="dataSource" ref="dataSource"/>
             </bean>
         </property>
     </bean>
 
-	<bean name="/index.do" class="com.cool.web.IndexController">
+	<bean name="indexAction" class="com.cool.web.IndexController">
         <property name="productDAO" ref="productDAO"/>
 	</bean>
 
-    <bean name="/page.do" class="com.cool.web.PageController">
+    <bean name="pageAction" class="com.cool.web.PageController">
         <property name="productDAO" ref="productDAO"/>
     </bean>
 
-    <bean name="/admin.do" class="com.cool.web.AdminController">
+    <bean name="adminAction" class="com.cool.web.AdminController">
         <property name="productDAO" ref="productDAO"/>
     </bean>
 
-    <bean name="/edit.do" class="com.cool.web.EditController">
+    <bean name="editAction" class="com.cool.web.EditController">
         <property name="formView" value="admin/edit"/>
         <property name="successView" value="admin/admin"/>
         <property name="productDAO" ref="productDAO"/>
     </bean>
 
-    <bean name="/submit.do" class="com.cool.web.EditProcessController">
+    <bean name="submitAction" class="com.cool.web.EditProcessController">
         <property name="productDAO" ref="productDAO"/>
     </bean>
 
@@ -88,11 +88,14 @@
         </property>
     </bean>
 
-    <bean name="/login.do" class="com.cool.web.LoginController">
+    <bean name="loginAction" class="com.cool.web.LoginController">
         <property name="accountDAO" ref="accountDAO"/>
+        <property name="commandClass" value="com.cool.model.LoginForm"/>
+        <property name="formView" value="index"/>
+        <property name="successView" value="index"/>
     </bean>
 
-    <bean name="/register.do" class="com.cool.web.RegisterController">
+    <bean name="registerAction" class="com.cool.web.RegisterController">
         <property name="accountDAO" ref="accountDAO"/>
         <property name="formView" value="register"/>
         <property name="successView" value="index"/>
@@ -100,6 +103,20 @@
 
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <property name="defaultEncoding" value="UTF-8"/>
+    </bean>
+
+    <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <props>
+                <prop key="/login.do">loginAction</prop>
+                <prop key="/register.do">registerAction</prop>
+                <prop key="/index.do">indexAction</prop>
+                <prop key="/edit.do">editAction</prop>
+                <prop key="/admin.do">adminAction</prop>
+                <prop key="/page.do">pageAction</prop>
+                <prop key="/submit.do">submitAction</prop>
+            </props>
+        </property>
     </bean>
 
 </beans>

@@ -9,6 +9,6 @@
 -->
 
 
-<Context path="/coolpipi" docBase="D:\Github\idea-cool\coolpipi\build\coolpipi" reloadable="true" crossContext="true">
+<Context path="/coolpipi" docBase="E:\Github\idea-cool\coolpipi\web" reloadable="true" crossContext="true">
 	<ResourceLink name="jdbc/coolpipi" type="javax.sql.DataSource" global="jdbc/coolpipi"/>
 </Context>

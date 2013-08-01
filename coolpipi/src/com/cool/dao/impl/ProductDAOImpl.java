@@ -10,7 +10,9 @@ import java.io.UnsupportedEncodingException;
 import java.sql.Blob;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author zorro
@@ -23,6 +25,11 @@ public class ProductDAOImpl extends JdbcDaoSupport implements ProductDAO {
     private static final String SELECT_PRODUCT = "select uid,name,summary,defaultpic,description from c_product where uid = ?";
     private static final String INSERT_PRODUCT = "insert into c_product(name,summary,defaultpic,description) values(?,?,?,?)";
     private static final String UPDATE_PRODUCT = "update c_product set name=?,summary=?,defaultpic=?,description=? where uid=?";
+    private Map tagsMap = new HashMap();
+
+    public void init() {
+        tagsMap = getTagsFromDB();
+    }
 
     public List<Product> getAllProduct() {
         return getJdbcTemplate().query(SELECT_ALL_PRODUCT, new ProductRowMapper());
@@ -52,6 +59,32 @@ public class ProductDAOImpl extends JdbcDaoSupport implements ProductDAO {
 
     public DetailProduct getDetailProduct(int uid) {
         return null;  //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+    public Map getTags() {
+        return tagsMap;
+    }
+
+    public List<Integer> getTagsByUid(int uid) {
+        String sql = "select tagid from c_tag_mapping where uid = ?";
+        return getJdbcTemplate().query(sql, new Object[]{uid}, new RowMapper() {
+            public Object mapRow(ResultSet resultSet, int i) throws SQLException {
+                return resultSet.getInt("tagid");
+            }
+        });
+
+    }
+
+    private Map getTagsFromDB() {
+        String sql = "select tagid, tagname from c_tag";
+        final Map map = new HashMap();
+        getJdbcTemplate().query(sql, new RowMapper() {
+            public Object mapRow(ResultSet resultSet, int i) throws SQLException {
+                map.put(resultSet.getString("tagid"), resultSet.getString("tagname"));
+                return null;
+            }
+        });
+        return map;
     }
 
     private class ProductRowMapper implements RowMapper {

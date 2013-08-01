@@ -6,7 +6,7 @@
 <script type="text/javascript" src="js/editor_config.js"></script>
 <script type="text/javascript" src="js/editor_all_min.js"></script>
 <html>
-<body style="background-color: white;">
+<body style="background-color: white;overflow: scroll">
 <%@ include file="/WEB-INF/jsp/head.jsp" %>
 <div class="content">
     <div class="layoutbox"></div>

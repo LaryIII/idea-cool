@@ -6,7 +6,7 @@ import java.io.File;
  * @author zorro
  * 首页上展示的product对象
  */
-public class Product {
+public class Product    {
     int uid;             //主键
     String name;         //物品名称
     String summary;      //物品描述
@@ -61,4 +61,5 @@ public class Product {
     public String getEditorValue() {
         return editorValue;
     }
+
 }

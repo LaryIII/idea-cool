@@ -9,35 +9,39 @@
     <div class="layoutbox"></div>
     <div class="slide-down-box"></div>
     <input type="button" onclick="window.location.href='edit.do'" value="新 增"/>
-    <table style="width:100%">
-        <tr>
-            <th style="width: 5%">产品id</th>
-            <th style="width: 20%">产品名称</th>
-            <th style="width: 50%">产品描述</th>
-            <th style="width: 12%">产品标签</th>
-            <th style="width: 7%">图片路径</th>
-            <th style="width: 3%">编编</th>
-            <th style="width: 3%">删除</th>
-        </tr>
-        <c:forEach var="product" items="${products}">
+    <table class="table table-striped table-bordered table-condensed table-hover">
+        <thead>
             <tr>
-                <td>${product['uid']}</td>
-                <td>${product['name']}</td>
-                <td>${product['summary']}</td>
-                <td></td>
-                <td>${product['defaultPic']}</td>
-                <td style="vertical-align: middle;padding-left: 0;text-align: center">
-                    <a href="edit.do?uid=${product['uid']}">
-                        <img src="${pageContext.request.contextPath}/images/edit_icon.gif" alt="编辑"/>
-                    </a>
-                </td>
-                <td style="vertical-align: middle;padding-left: 0;text-align: center">
-                    <a class="delLink" href="#" uid="${product['uid']}">
-                        <img src="${pageContext.request.contextPath}/images/delete.gif" alt="删除"/>
-                    </a>
-                </td>
+                <th style="width: 5%">产品id</th>
+                <th style="width: 10%">产品名称</th>
+                <th style="width: 40%">产品标签</th>
+                <th style="width: 25%">图片路径</th>
+                <th style="width: 5%">编编</th>
+                <th style="width: 5%">删除</th>
             </tr>
-        </c:forEach>
+        </thead>
+        <tbody>
+            <c:forEach var="product" items="${products}">
+                <tr>
+                    <td>${product['uid']}</td>
+                    <td>${product['name']}</td>
+                    <td>
+                        <button class="btn btn-mini btn-primary" type="button">编辑</button>
+                    </td>
+                    <td>${product['defaultPic']}</td>
+                    <td style="vertical-align: middle;padding-left: 0;text-align: center">
+                        <a href="edit.do?uid=${product['uid']}">
+                            <i class="icon-tag" alt="编辑"></i>
+                        </a>
+                    </td>
+                    <td style="vertical-align: middle;padding-left: 0;text-align: center">
+                        <a class="delLink" href="#" uid="${product['uid']}"d>
+                            <i class="icon-trash" alt="删除"></i>
+                        </a>
+                    </td>
+                </tr>
+            </c:forEach>
+        </tbody>
     </table>
 </div>
 </body>

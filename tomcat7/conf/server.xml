@@ -46,10 +46,10 @@
               pathname="conf/tomcat-users.xml" />
 	<Resource name="jdbc/coolpipi"  scope="Shareable"   
 			  type="javax.sql.DataSource"   
-			  username="coolweb"   
-			  password="zorro123"   
+			  username="root"   
+			  password="123456"   
 			  driverClassName="com.mysql.jdbc.Driver"   
-			  url="jdbc:mysql://114.80.210.96:3306/coolweb?useUnicode=true&amp;characterEncoding=utf8"   
+			  url="jdbc:mysql://localhost:3306/coolpipi?useUnicode=true&amp;characterEncoding=utf8"   
 			  autoReconnect="true"/>
   </GlobalNamingResources>
 

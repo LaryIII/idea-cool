@@ -10,9 +10,15 @@
 <div class="header">
     <div class="logo-box"><a href="#" class="logo"></a></div>
     <div class="home-btn"><button id="homeBtn" class="btn btn-large" type="button">Home</button></div>
+    <%if(null == session.getAttribute("username")){%>
     <div class="login">
         <button id="loginbtn" class="btn dropdown-toggle" data-toggle="modal" data-target="#myModal"><i class="icon-user"></i> 登录</button>
     </div>
+    <%}else {%>
+    <div class="login">
+        <div class="dropdown-toggle" data-toggle="modal" data-target="#myModal"><i class="icon-user"></i> 欢迎您：<%=session.getAttribute("username")%></div>
+    </div>
+    <%}%>
 </div>
 <div id="mask"></div>
 <div class="modal hide fade" id="myModal">
@@ -26,7 +32,7 @@
             密　码：<input type="password" name="password" size="10">
         </div>
         <div class="modal-footer">
-            <a type="submit" class="btn">登录</a>
+            <button type="submit" class="btn">登录</button>
             <a onclick="window.location.href='register.do'" class="btn btn-primary">注册新用户</a>
         </div>
     </form>
