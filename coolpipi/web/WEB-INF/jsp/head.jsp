@@ -5,6 +5,8 @@
     <!--     <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" media="screen" />
     <link href="assets/css/ideacool.css" rel="stylesheet" media="screen" />
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 </head>
 
 <div class="header">
@@ -12,7 +14,7 @@
     <div class="home-btn"><button id="homeBtn" class="btn btn-large" type="button">Home</button></div>
     <%if(null == session.getAttribute("username")){%>
     <div class="login">
-        <button id="loginbtn" class="btn dropdown-toggle" data-toggle="modal" data-target="#myModal"><i class="icon-user"></i> 登录</button>
+        <button id="loginbtn" class="btn dropdown-toggle" data-toggle="modal" data-target="#login"><i class="icon-user"></i> 登录</button>
     </div>
     <%}else {%>
     <div class="login">
@@ -21,7 +23,7 @@
     <%}%>
 </div>
 <div id="mask"></div>
-<div class="modal hide fade" id="myModal">
+<div class="modal hide fade" id="login">
     <form action="login.do" method="post">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>

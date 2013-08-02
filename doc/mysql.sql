@@ -7,7 +7,8 @@ create table C_PRODUCT
 	DEFAULTPIC    VARCHAR(30) ,                						--首页上的物品图片路径
 	PV        INT         DEFAULT 0,        						--物品浏览量
 	COLLECT   INT         DEFAULT 0,       						    --物品被收藏总数
-	DESCRIPTION   BLOB                                              --物品描述(实现)
+	DESCRIPTION   BLOB,                                             --物品描述(实现)
+	TAG       VARCHAR(30)                                           --物品标签（保存标签ID，空格区分）         
 )ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- 存储物品标签映射关系

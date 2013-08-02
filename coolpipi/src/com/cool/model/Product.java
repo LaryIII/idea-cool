@@ -13,6 +13,7 @@ public class Product    {
     String defaultPic;   //图片路径
     File file;           //图片文件
     String editorValue;  //物品详细描述
+    String tag;          //标签
 
     public void setUid(int uid) {
         this.uid = uid;
@@ -38,6 +39,10 @@ public class Product    {
         this.editorValue = editorValue;
     }
 
+    public void setTag(String tag) {
+        this.tag = tag;
+    }
+
     public int getUid() {
         return uid;
     }
@@ -60,6 +65,10 @@ public class Product    {
 
     public String getEditorValue() {
         return editorValue;
+    }
+
+    public String getTag() {
+        return tag;
     }
 
 }

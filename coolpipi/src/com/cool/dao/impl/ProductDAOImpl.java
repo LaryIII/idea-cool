@@ -19,7 +19,7 @@ import java.util.Map;
  * Product数据库层实现类
  */
 public class ProductDAOImpl extends JdbcDaoSupport implements ProductDAO {
-    private static final String SELECT_ALL_PRODUCT = "select uid,name,summary,defaultpic from c_product";
+    private static final String SELECT_ALL_PRODUCT = "select uid,name,summary,defaultpic,tag from c_product";
     private static final String SELECT_PRODUCT_INDEX = "select uid,name,summary,defaultpic from c_product order by pv desc limit 8";
     private static final String SELECT_PRODUCT_PAGE = "select uid,name,summary,defaultpic from c_product order by pv desc limit ?,8";
     private static final String SELECT_PRODUCT = "select uid,name,summary,defaultpic,description from c_product where uid = ?";
