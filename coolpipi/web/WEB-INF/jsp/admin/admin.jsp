@@ -20,7 +20,7 @@
                         <th style="width: 10%">产品名称</th>
                         <th style="width: 40%">产品标签</th>
                         <th style="width: 25%">图片路径</th>
-                        <th style="width: 5%">编编</th>
+                        <th style="width: 5%">编辑</th>
                         <th style="width: 5%">删除</th>
                     </tr>
                 </thead>
@@ -32,6 +32,7 @@
                             <td>
                                 <button class="btn btn-mini btn-primary editTagBtn" type="button" uid="${product['uid']}"
                                         name="${product['name']}">编辑</button>
+                                ${product['tag']}
                             </td>
                             <td>${product['defaultPic']}</td>
                             <td style="vertical-align: middle;padding-left: 0;text-align: center">
@@ -56,20 +57,24 @@
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         <h3 id="myModalLabel">编辑标签</h3>
     </div>
-    <div class="modal-body">
-        <ul id="tag_ul" class="alias_ul">
+    <form action="editTag.do" method="post">
+    <div class="modal-body" style="height: 500px">
+        <input id="uid" name="uid" style="display: none"/>
+        <p>产品名称：</p><input id="name" name="name" type="text" disabled="true"/>
+        <ul id="tag_ul" class="tag_ul">
             <li style="overflow:hidden;padding:2px 5px">
-                <input id="addAliasInput" type="text" class="alias_new_input"
-                       style="display: none"/>
-                <img id="addTag" title="点击添加标签" alt="点击添加标签" style="cursor:pointer"/>
+                <input id="addTagInput" type="text" class="tag_new_input"
+                       style="display: none" data-provide="typeahead"/>
+                <img id="addTag" class="icon-plus" alt="点击添加标签" style="cursor:pointer"/>
                 <span style="color:gray">(点击添加标签)</span>
             </li>
         </ul>
     </div>
     <div class="modal-footer">
-        <button class="btn btn-primary">保存</button>
+        <button class="btn btn-primary" type="submit">保存</button>
         <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
     </div>
+    </form>
 </div>
 </body>
 </html>
@@ -77,10 +82,18 @@
     (function ($) {
         $(".editTagBtn").click(function (){
             var uid = $(this).attr("uid");
-            $("#tagEdit").modal({uid: $(this).attr("uid"), name: $(this).attr("name")}).modal("show");
+            var name = $(this).attr("name");
+            $("#name").val(name);
+            $("#uid").val(uid);
+            $("#tagEdit").modal("show");
+        });
+
+        $('#addTagInput').typeahead({
+            source: ${tags}
         })
+
         function initSpanEvent() {
-            $("#alias_ul li.alias_li span").each(function (index, span) {
+            $("#tag_ul li.tag_li span").each(function (index, span) {
                 bindClickEventOnSpan(span);
             });
         }
@@ -88,11 +101,11 @@
         function bindClickEventOnA(a) {
             $(a).on("click", function () {
                 $(this).parent().remove();
-                if ($("#alias_ul li.alias_li").length == 0) {
-                    var userAliasEmptyHidden = $("<input>").attr("id", "userAlias")
+                if ($("#tag_ul li.tag_li").length == 0) {
+                    var userTagEmptyHidden = $("<input>").attr("id", "userTag")
                             .attr("type", "hidden").attr("value", "")
-                            .attr("name", "map['attributes']['alias']");
-                    $("#alias_ul").append(userAliasEmptyHidden);
+                            .attr("name", "tags").attr("data-provide", "typeahead");
+                        $("#tag_ul").append(userTagEmptyHidden);
                 }
             });
         }
@@ -100,7 +113,8 @@
         function bindClickEventOnSpan(span) {
             $(span).on("click", function () {
                 var text = $(this).text();
-                var input = $("<input>").attr("type", "text").attr("class", "alias_input").attr("value", text);
+                var input = $("<input>").attr("type", "text").attr("class", "tag_input").attr("value", text)
+                        .attr("data-provide", "typeahead");
                 $(this).replaceWith(input);
                 input.focus();
                 bindBlurEventOnInput(input);
@@ -118,11 +132,11 @@
         }
 
         initSpanEvent();
-        $("#alias_ul li.alias_li a").each(function (index, a) {
+        $("#tag_ul li.tag_li a").each(function (index, a) {
             bindClickEventOnA(a);
         });
         $("#addTag").on("click", function () {
-            var input = $("#addAliasInput");
+            var input = $("#addTagInput");
             var addA = $(this);
             input.show();
             input.focus();
@@ -131,23 +145,24 @@
                 $(this).hide();
                 var inputValue = $(this).val();
                 if (inputValue != null && inputValue.trim() != "") {
-                    var newLi = $("<li>").attr("class", "alias_li");
+                    var newLi = $("<li>").attr("class", "tag_li");
                     var newSpan = $("<span>").text(inputValue);
                     newLi.append(newSpan);
-                    var newHidden = $("<input>").attr("type", "hidden").attr("name", "map['attributes']['alias']").attr("value", inputValue);
+                    var newHidden = $("<input>").attr("type", "hidden").attr("name", "tags").attr("value", inputValue)
+                            .attr("data-provide", "typeahead");
                     newLi.append(newHidden);
-                    var newA = $("<a>").attr("class", "deleteAlias").attr("title", "删除").append("&nbsp;&nbsp;&nbsp;");
+                    var newA = $("<a>").attr("class", "icon-remove").attr("title", "删除").append("&nbsp;&nbsp;&nbsp;");
                     newLi.append(newA);
-                    if ($("#alias_ul .alias_li").length == 0) {
-                        $("#alias_ul").prepend(newLi);
+                    if ($("#tag_ul .tag_li").length == 0) {
+                        $("#tag_ul").prepend(newLi);
                     } else {
-                        newLi.insertAfter($("#alias_ul .alias_li:last"));
+                        newLi.insertAfter($("#tag_ul .tag_li:last"));
                     }
                     bindClickEventOnSpan(newSpan);
                     bindClickEventOnA(newA);
                 }
                 $(this).val("");
-                $("#userAlias").remove();
+                $("#userTag").remove();
             });
             $(this).hide();
         });

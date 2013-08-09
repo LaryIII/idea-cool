@@ -1,6 +1,7 @@
 package com.cool.model;
 
 import java.io.File;
+import java.util.List;
 
 /**
  * @author zorro
@@ -13,7 +14,7 @@ public class Product    {
     String defaultPic;   //图片路径
     File file;           //图片文件
     String editorValue;  //物品详细描述
-    String tag;          //标签
+    List<String> tag;          //标签
 
     public void setUid(int uid) {
         this.uid = uid;
@@ -39,7 +40,7 @@ public class Product    {
         this.editorValue = editorValue;
     }
 
-    public void setTag(String tag) {
+    public void setTag(List tag) {
         this.tag = tag;
     }
 
@@ -67,7 +68,7 @@ public class Product    {
         return editorValue;
     }
 
-    public String getTag() {
+    public List getTag() {
         return tag;
     }
 

@@ -31,4 +31,6 @@ public interface ProductDAO {
     Map getTags();
 
     List<Integer> getTagsByUid(int uid);
+
+    void editTag(int uid, String[] tags);
 }

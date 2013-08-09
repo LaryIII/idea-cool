@@ -69,6 +69,10 @@
         <property name="productDAO" ref="productDAO"/>
     </bean>
 
+    <bean name="editTagAction" class="com.cool.web.EditTagController">
+        <property name="productDAO" ref="productDAO"/>
+    </bean>
+
     <bean name="editAction" class="com.cool.web.EditController">
         <property name="formView" value="admin/edit"/>
         <property name="successView" value="admin/admin"/>
@@ -115,6 +119,7 @@
                 <prop key="/admin.do">adminAction</prop>
                 <prop key="/page.do">pageAction</prop>
                 <prop key="/submit.do">submitAction</prop>
+                <prop key="/editTag.do">editTagAction</prop>
             </props>
         </property>
     </bean>

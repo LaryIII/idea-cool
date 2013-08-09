@@ -10,9 +10,7 @@ import java.io.UnsupportedEncodingException;
 import java.sql.Blob;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @author zorro
@@ -20,12 +18,12 @@ import java.util.Map;
  */
 public class ProductDAOImpl extends JdbcDaoSupport implements ProductDAO {
     private static final String SELECT_ALL_PRODUCT = "select uid,name,summary,defaultpic,tag from c_product";
-    private static final String SELECT_PRODUCT_INDEX = "select uid,name,summary,defaultpic from c_product order by pv desc limit 8";
-    private static final String SELECT_PRODUCT_PAGE = "select uid,name,summary,defaultpic from c_product order by pv desc limit ?,8";
+    private static final String SELECT_PRODUCT_INDEX = "select uid,name,summary,defaultpic,tag from c_product order by pv desc limit 8";
+    private static final String SELECT_PRODUCT_PAGE = "select uid,name,summary,defaultpic,tag from c_product order by pv desc limit ?,8";
     private static final String SELECT_PRODUCT = "select uid,name,summary,defaultpic,description from c_product where uid = ?";
     private static final String INSERT_PRODUCT = "insert into c_product(name,summary,defaultpic,description) values(?,?,?,?)";
     private static final String UPDATE_PRODUCT = "update c_product set name=?,summary=?,defaultpic=?,description=? where uid=?";
-    private Map tagsMap = new HashMap();
+    private Map<Integer, String> tagsMap = new HashMap();
 
     public void init() {
         tagsMap = getTagsFromDB();
@@ -75,12 +73,44 @@ public class ProductDAOImpl extends JdbcDaoSupport implements ProductDAO {
 
     }
 
+    public void editTag(int uid, String[] tags) {
+        String delTagSql = "delete from c_tag_mapping where uid = ?";
+        String addTagSql = "insert into c_tag_mapping(uid,tagid) values(?,?)";
+        String updateSql = "update c_product set tag=? where uid = ?";
+
+        getJdbcTemplate().update(delTagSql, new Object[]{uid});
+        String tagsString = "";
+        for(String tag : tags){
+            Set<Integer> kset=tagsMap.keySet();
+            boolean isExist = false;
+            for(int tagId : kset){
+                if(tag.equals(tagsMap.get(tagId))){
+                    getJdbcTemplate().update(addTagSql, new Object[]{uid, tagId});
+                    isExist = true;
+                    tagsString += tag+",";
+                    break;
+                }
+            }
+            //表示标签不存在，需要新建标签
+            if(!isExist){
+                String sql = "insert into c_tag(tagname) values(?)";
+                int tagId = tagsMap.size()+1;
+                getJdbcTemplate().update(sql, new Object[]{tag});
+                getJdbcTemplate().update(addTagSql, new Object[]{uid, tagId});
+                tagsString += tag+",";
+                init();
+            }
+        }
+        if(!tagsString.isEmpty())
+            getJdbcTemplate().update(updateSql, new Object[]{tagsString.substring(0,tagsString.length()-1), uid});
+    }
+
     private Map getTagsFromDB() {
         String sql = "select tagid, tagname from c_tag";
-        final Map map = new HashMap();
+        final Map<Integer, String> map = new HashMap();
         getJdbcTemplate().query(sql, new RowMapper() {
             public Object mapRow(ResultSet resultSet, int i) throws SQLException {
-                map.put(resultSet.getString("tagid"), resultSet.getString("tagname"));
+                map.put(Integer.valueOf(resultSet.getString("tagid")), resultSet.getString("tagname"));
                 return null;
             }
         });
@@ -94,6 +124,10 @@ public class ProductDAOImpl extends JdbcDaoSupport implements ProductDAO {
             product.setName(rs.getString("name"));
             product.setSummary(rs.getString("summary"));
             product.setDefaultPic(rs.getString("defaultpic"));
+            String tag = rs.getString("tag");
+            if(tag != null){
+                product.setTag(Arrays.asList(tag.split(",")));
+            }
             return product;
         }
     }
